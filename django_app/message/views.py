@@ -1,3 +1,5 @@
+import random
+
 from django.shortcuts import render
 from rest_framework import views, serializers, exceptions
 from rest_framework.response import Response
@@ -9,7 +11,12 @@ from .models import Number, Message
 # Create your views here.
 class CreateNumberAPI(views.APIView):
     def post(self, request, *args, **kwargs):
-        serializer = NumberSerializer(data=request.data)
+
+        number = 1
+        while Number.objects.filter(number=number).exists():
+            number = 1500000 + random.randrange(10000, 100000)
+
+        serializer = NumberSerializer(data={'number': number})
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)

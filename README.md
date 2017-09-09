@@ -6,7 +6,7 @@ url : 1010235.ap-northeast-2.elasticbeanstalk.com
 
 URI | Method | Content | Params
 ----| ------ | ------- | ------
-`/create` | `POST` | 번호를 생성합니다. | `number(int)`
+`/create` | `POST` | 번호를 생성합니다. | None
 `/send` | `POST` | 메시지를 보냅니다. | `number(int)`, `msg(int)`
 `/list/<number>` | `GET` | 해당 번호의 모든 메시지 |
 `/list/<number>/new` | `GET` | 새로운 메시지 목록 |

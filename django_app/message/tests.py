@@ -10,16 +10,16 @@ class NumberAndMessageTest(APITestCase):
     def setUp(self):
         super().setUp()
         self.dummy_msg = 101010101010
-        self.number = 1022052469
 
-        self.client.post('/create', data={'number': self.number}).json().get('number')
+        self.number = self.client.post('/create').json().get('number')
 
     def test_create_number(self):
-        response = self.client.post('/create', data={'number': 2074}).json()
+        response = self.client.post('/create').json()
         first_number = response.get('number')
         second_number = Number.objects.get(number=first_number).number
+        print(first_number, self.number)
 
-        self.assertEqual(first_number, 2074)
+        self.assertEqual(first_number, second_number)
 
     def test_get_message_list(self):
         self.client.post('/send', data={
