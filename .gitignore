@@ -223,3 +223,8 @@ venv.bak/
 .media/
 .static_root/
 /home/jyj/projects/1010235/build_project/
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

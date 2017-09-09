@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'corsheaders',
     'rest_framework',
 
     # 'member',
@@ -55,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware'
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -120,3 +121,19 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     STATIC_DIR,
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ORIGIN_WHITELIST = [
+    'localhost:3000',
+    'localhost:4040',
+    'localhost:5050',
+    'localhost:8080',
+    'localhost:8000',
+    'localhost:8333'
+]
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(PROJECT_DIR, '.static_root')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(PROJECT_DIR, '.media')
