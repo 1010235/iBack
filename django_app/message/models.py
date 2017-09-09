@@ -9,7 +9,7 @@ class Number(models.Model):
 
 class Message(models.Model):
     number = models.ForeignKey(Number, on_delete=models.CASCADE)
-    massage = models.IntegerField()
+    msg = models.IntegerField()
     created_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:

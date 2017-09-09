@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from message.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^create', ),
-
+    url(r'^create', CreateNumberAPI.as_view()),
+    url(r'^send', MessageSendAPI.as_view())
 ]
