@@ -1,4 +1,4 @@
-FROM        wnrhd114/1010235_python
+FROM        wnrhd114/docker_ubuntu_pip
 MAINTAINER  wnrhd114@gmail.com
 
 ENV         LANG C.UTF-8
