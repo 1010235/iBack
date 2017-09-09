@@ -10,6 +10,14 @@ class NumberSerializer(serializers.ModelSerializer):
             'number',
         )
 
+    def save(self, **kwargs):
+        num_obj = Number.objects.filter(number=self.initial_data.get('number'))
+        if num_obj.exists():
+            raise serializers.ValidationError("Number is already exist.")
+
+        instance = super().save(**kwargs)
+        return instance.save()
+
 
 class MessageSerializer(serializers.ModelSerializer):
     number = serializers.IntegerField(source='number.number')
