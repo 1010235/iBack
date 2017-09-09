@@ -20,5 +20,6 @@ from message.views import *
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^create', CreateNumberAPI.as_view()),
-    url(r'^send', MessageSendAPI.as_view())
+    url(r'^send', MessageSendAPI.as_view()),
+    url(r'^list/(?P<number>\d+)', MessageListAPI.as_view())
 ]
